@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    <title>Min & Max</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='min_and_max.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.1.0/paho-mqtt.min.js"
+    integrity="sha512-Y5n0fbohPllOQ21fTwM/h9sQQ/1a1h5KhweGhu2zwD8lAoJnTgVa7NIrFa1bRDIMQHixtyuRV2ubIx+qWbGdDA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="/static/js/minmax.js"></script>
+</head>
+
+<body background="{{ url_for('static', filename='wallpapers/min_and_max_wallpaper.jpeg') }}">
+
+    <body>
+        <div class="banner">
+            <div class="navbar">
+                <a href="/main"> <img src="{{ url_for('static', filename='/images/aulogo.png')}}" class="logo"></a>
+                <ul>
+                    <li><a href="/main">Latest Readings</a></li>
+                    <li><a href="/minmax"><b>Min & Max</b></a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>MIN & MAX</h1>
+                <h4>
+                    Her står de største målte værdier for henholdsvis eCO2 og TVOC.
+                </h4>
+                <div class="container">
+                    <div class="tvoccontainer">
+                        {% if minTvoc %}
+                        <dl>
+                            {% for row in minTvoc%}
+                        </dl>
+                        <div class="datainputs">
+                            <a class="tvoc">MIN TVOC:</a>
+                            <a id="mintvoc">{{row[0]}}</a>
+                            <a class="date"><br>Date:</a>
+                            <a id="mintvocdate">{{row[1]}}</a>
+                        </div>
+                        {%endfor %} {%endif%}
+
+                        {% if maxTvoc %}
+                        <dl>
+                            {% for row in maxTvoc%}
+                        </dl>
+                        <div class="datainputs">
+                            <a class="tvoc">MAX TVOC:</a>
+                            <a id="maxtvoc">{{row[0]}}</a>
+                            <a class="date"><br>Date:</a>
+                            <a id="maxtvocdate">{{row[1]}}</a>
+                        </div>
+                        {%endfor %} {%endif%}
+                    </div>
+
+                    <div class="eco2container">
+                        {% if minEco2 %}
+                        <dl>
+                            {% for row in minEco2%}
+                        </dl>
+                        <div class="datainputs">
+                            <a class="eco2">MIN eCO2:</a>
+                            <a id="mineco2">{{row[0]}}</a>
+                            <a class="date"><br>Date:</a>
+                            <a id="mineco2date">{{row[1]}}</a>
+                        </div>
+                        {%endfor %} {%endif%}
+
+                            {% if maxEco2 %}
+                        <dl>
+                            {% for row in maxEco2%}
+                        </dl>
+                        <div class="datainputs">
+                            <a class="eco2">MAX eCO2:</a>
+                            <a id="maxeco2">{{row[0]}}</a>
+                            <a class="date"><br>Date:</a>
+                            <a id="maxeco2date">{{row[1]}}</a>
+                        </div>
+                        {%endfor %} {%endif%}
+                    </div>
+
+                    <div class="latest">
+                        {% if latestData %}
+                        <dl>
+                            {% for row in latestData%}
+                        </dl>
+                        <div class="datainputs">
+                            <a class="tvoc">Latest TVOC:</a>
+                            <a id="latesttvoc">{{row[0]}}</a>
+                            <a class="eco2"><br>Latest eCO2:</a>
+                            <a id="latesteco2">{{row[1]}}</a>
+                            <a class="date"><br>Date:</a>
+                            <a id="latestdate">{{row[2]}}</a>
+                        </div>
+                        {%endfor %} {%endif%}
+                    </div>
+
+                    <form id="connection-information-form">
+                        <div>
+                            <label for="username">Username:</label>
+                            <input id="username" type="text" name="username" value="">
+                        </div>
+
+                        <div>
+                            <label for="password">Password:</label>
+                            <input id="password" type="password" name="password" value="">
+                        </div>
+
+                        <div>
+                            <input id="connectMQTT" type="button" value="Connect"> <br>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+    </body>
+</html>

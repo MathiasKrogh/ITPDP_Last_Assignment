@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Latest Readings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main_page.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.1.0/paho-mqtt.min.js"
+    integrity="sha512-Y5n0fbohPllOQ21fTwM/h9sQQ/1a1h5KhweGhu2zwD8lAoJnTgVa7NIrFa1bRDIMQHixtyuRV2ubIx+qWbGdDA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="/static/js/main.js"></script>
+</head>
+
+
+
+<body background="{{ url_for('static', filename='wallpapers/latest_readings_wallpaper.jpeg') }}">
+
+    <body>
+        <div class="banner">
+            <div class="navbar">
+                <a href="/main"> <img src="{{ url_for('static', filename='/images/aulogo.png')}}" class="logo"></a>
+                <ul>
+                    <li><a href="/main"><b>Latest Readings</b></a></li>
+                    <li><a href="/minmax">Min & Max</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Latest readings of eCO2 and TVOC</h1>
+                <h4>
+                    Here you can see the latest readings from the Core2
+                </h4>
+                <div class="container">
+                    <section id="main_data" class="main_data">
+                        {% if list %}
+                            <dl>
+                                {% for row in list %}
+                            </dl>
+                            <div class="datainputs">
+                                <p class="tvoc">TVOC: {{row[0]}}</p>
+                                <p class="eco2">eCO2: {{row[1]}}</p>
+                                <p class="date">Date: {{row[2]}}<br></p>
+                            </div>
+                        {%endfor %} {%endif%}
+                    </section>
+
+                    <form id="connection-information-form">
+                        <div>
+                        <label for="username">Username:</label>
+                        <input id="username" type="text" name="username" value="">
+                        </div>
+                        <div>
+                        <label for="password">Password:</label>
+                        <input id="password" type="password" name="password" value="">
+                        </div>
+                        <div>
+                        <input id="connectMQTT" type="button" value="Connect"> <br>
+                        </div>
+                    </form>
+
+                    
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>

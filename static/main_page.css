@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.logo {
+    width: 40vh;
+    cursor: pointer;
+}
+
+.navbar {
+    width: 160vh;
+    margin: auto;
+    padding: 5vh 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 3vh;
+    position: relative;
+}
+
+.navbar ul li a {
+    font-size: 2.1vh;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+.navbar ul li a:active {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: white;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    color: white;
+}
+
+.content h1 {
+    font-size: 50px;
+    letter-spacing: 5px;
+    cursor: default;
+}
+
+.content p {
+    margin: 20px auto;
+    line-height: 25px;
+    cursor: default;
+    width: 40%;
+}
+
+section {
+    height: 400px;
+    width: 400px;
+    overflow: scroll;
+    float: left;
+    margin-top: 25px;
+    border: 2px white solid;
+    border-radius: 15px;
+    margin-left: 25%;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.main_data {
+    width: 400px;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.datainputs {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid white;
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.datainputs p {
+    width: auto;
+}
+
+form {
+    width: 300px;
+    height: 130px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    background-color: #4F4779;
+    border-radius: 1em;
+    float: right;
+    margin-top: 25px;
+    margin-left: 50px;
+    margin-right: auto;
+  }
+  
+  form div + div {
+    margin-top: 1em;
+  }
+  
+  label {
+    display: inline-block;
+    width: 90px;
+    text-align: left;
+  }
+  
+  label, input, textarea {
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 0.25em;
+  }
+  
+  input:focus, textarea:focus {
+    border-color: #000;
+  }
+  
+  textarea {
+    vertical-align: top;
+    height: 5em;
+  }
+  
+  .button {
+    padding-left: 90px;
+  }
+  
+  button {
+    margin-left: .5em;
+  }
+  
